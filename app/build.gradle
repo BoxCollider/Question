@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "questions.boxcollider.com.questions"
+        applicationId "com.boxcollider.questions"
         minSdkVersion 14
         targetSdkVersion 21
         versionCode 1

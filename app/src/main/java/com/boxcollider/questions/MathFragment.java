@@ -1,4 +1,4 @@
-package questions.boxcollider.com.questions;
+package com.boxcollider.questions;
 
 import android.app.Fragment;
 import android.os.Bundle;

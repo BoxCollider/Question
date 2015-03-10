@@ -5,7 +5,7 @@
                 android:id="@+id/parent"
                 android:background="#FF444444"
                 android:gravity="center"
-                tools:context="questions.boxcollider.com.questions.MainActivity">
+                tools:context="com.boxcollider.questions.MainActivity">
 
 
 </RelativeLayout>
