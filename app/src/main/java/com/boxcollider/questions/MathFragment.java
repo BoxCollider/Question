@@ -10,14 +10,9 @@ import android.view.ViewGroup;
 
 public class MathFragment extends Fragment {
 
-
-
-
-
     public MathFragment() {
         // Required empty public constructor
     }
-
 
 
     @Override
@@ -26,6 +21,5 @@ public class MathFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_math, container, false);
     }
-
 
 }
