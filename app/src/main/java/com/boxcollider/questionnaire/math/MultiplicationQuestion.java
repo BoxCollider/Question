@@ -8,7 +8,7 @@ public class MultiplicationQuestion extends MathQuestion {
 
     @Override
     public boolean isCorrect(int answer) {
-        return (first * second == answer);
+        return (firstDigit * secondDigit == answer);
     }
 
 }

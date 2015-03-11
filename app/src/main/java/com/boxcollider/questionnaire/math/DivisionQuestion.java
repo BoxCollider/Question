@@ -8,14 +8,14 @@ public class DivisionQuestion extends MathQuestion {
 
     @Override
     public boolean isCorrect(int answer) {
-        if(second==0){
+        if(secondDigit ==0){
             throw new ArithmeticException("Cannot divide by zero");
         }
 
-        if(first%second!=0){
+        if(firstDigit % secondDigit !=0){
             throw new IllegalArgumentException("Division with remainder");
         }
-        return (first / second == answer);
+        return (firstDigit / secondDigit == answer);
     }
 
 }

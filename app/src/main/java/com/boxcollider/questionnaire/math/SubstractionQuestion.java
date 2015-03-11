@@ -10,10 +10,10 @@ public class SubstractionQuestion extends MathQuestion {
     public boolean isCorrect(int answer) {
 
 
-        if(first<second){
+        if(firstDigit < secondDigit){
             throw new IllegalArgumentException("Substraction with negative result");
         }
-        return (first - second == answer);
+        return (firstDigit - secondDigit == answer);
     }
 
 }

@@ -7,25 +7,25 @@ import com.boxcollider.questionnaire.Question;
 /**
  * Created by aleksander on 3/10/15.
  */
-public  class MathQuestion   implements Question<Pair<Integer, Integer>> {
 
-    int first;
-    int second;
+/**
+ * Base class for basic math questions.
+ * <br/>
+ * Encapsulates creation of a math question
+ * Subclasses must implement {@link #isCorrect(int answer)} to check
+ * <br/>
+ * if supplied answer is correct.
+ */
+public abstract class MathQuestion implements Question<Pair<Integer, Integer>> {
 
-
-
+    protected int firstDigit;
+    protected int secondDigit;
 
     @Override
     public Question make(Pair<Integer, Integer> questionContents) {
-        this.first= questionContents.first;
-        this.second= questionContents.second;
+        this.firstDigit = questionContents.first;
+        this.secondDigit = questionContents.second;
         return this;
     }
 
-
-
-
-    public boolean isCorrect(int answer) {
-        return false;
-    }
 }
