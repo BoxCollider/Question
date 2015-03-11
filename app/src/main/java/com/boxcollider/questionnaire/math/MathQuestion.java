@@ -1,7 +1,5 @@
 package com.boxcollider.questionnaire.math;
 
-import android.util.Pair;
-
 import com.boxcollider.questionnaire.Question;
 
 /**
@@ -16,14 +14,31 @@ import com.boxcollider.questionnaire.Question;
  * <br/>
  * if supplied answer is correct.
  */
-public abstract class MathQuestion implements Question<Pair<Integer, Integer>> {
+public abstract class MathQuestion implements Question<MathQuestion.Tuple> {
 
-    protected int firstDigit;
-    protected int secondDigit;
+    public int firstDigit;
+    public int secondDigit;
+
+    //Helper class for holding simple data structure for storing question parts
+    public static class Tuple{
+        int first;
+        int second;
+
+        private Tuple(int first, int second){
+            this.first=first;
+            this.second = second;
+        }
+
+        public static Tuple create(int first,int second){
+            return new Tuple(first,second);
+        }
+
+
+    }
 
     @Override
-    public Question make(Pair<Integer, Integer> questionContents) {
-        this.firstDigit = questionContents.first;
+    public Question make(Tuple questionContents) {
+        this.firstDigit=questionContents.first;
         this.secondDigit = questionContents.second;
         return this;
     }

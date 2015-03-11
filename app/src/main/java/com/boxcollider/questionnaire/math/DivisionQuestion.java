@@ -19,7 +19,7 @@ public final class DivisionQuestion extends MathQuestion {
             throw new ArithmeticException("Division by zero");
         }
 
-        //Division remainder not allowed
+        //Division remainder not allowed or first digit less than second
         if (firstDigit % secondDigit != 0) {
             throw new IllegalArgumentException("Division has remainder.");
         }
