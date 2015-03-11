@@ -1,4 +1,4 @@
-package com.boxcollider.questionnaire;
+package com.boxcollider.questionnaire.math;
 
 /**
  * Created by aleksander on 3/10/15.

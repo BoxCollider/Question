@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
 
-import com.boxcollider.questionnaire.AdditionQuestion;
-import com.boxcollider.questionnaire.DivisionQuestion;
-import com.boxcollider.questionnaire.MultiplicationQuestion;
+import com.boxcollider.questionnaire.math.AdditionQuestion;
+import com.boxcollider.questionnaire.math.DivisionQuestion;
+import com.boxcollider.questionnaire.math.MultiplicationQuestion;
 import com.boxcollider.questionnaire.Question;
-import com.boxcollider.questionnaire.SubstractionQuestion;
+import com.boxcollider.questionnaire.math.SubstractionQuestion;
 
 
 public class MainActivity extends Activity {
