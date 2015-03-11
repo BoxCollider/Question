@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
 
+import com.boxcollider.questionnaire.Question;
 import com.boxcollider.questionnaire.math.AdditionQuestion;
 import com.boxcollider.questionnaire.math.DivisionQuestion;
 import com.boxcollider.questionnaire.math.MultiplicationQuestion;
-import com.boxcollider.questionnaire.Question;
-import com.boxcollider.questionnaire.math.SubstractionQuestion;
+import com.boxcollider.questionnaire.math.SubtractionQuestion;
 
 
 public class MainActivity extends Activity {
@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
     }
 
     private void testSubstraction() {
-        Question q = new SubstractionQuestion();
+        Question q = new SubtractionQuestion();
         q.make(new Pair<>(30,5));
         boolean correct = q.isCorrect(25);
         Log.i("answer substraction", String.valueOf(correct));

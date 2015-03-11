@@ -25,10 +25,10 @@ public interface Question<T> {
     public Question make(T questionContents);
 
     /**
-     * Implementors must perform check on the answer
+     * Implementers must perform check on the answer
      *
-     * @param answer answer supplied by the user
-     * @return
+     * @param answer Answer supplied by the user
+     * @return if answer is correct or no
      */
     public boolean isCorrect(int answer);
 }
