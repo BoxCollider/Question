@@ -2,6 +2,7 @@ package com.boxcollider.questions;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.boxcollider.questionnaire.QuestionBag;
 
@@ -15,6 +16,7 @@ public class MainActivity extends Activity {
 
         addUIFragment();
         QuestionBag bag = QuestionBag.makeAdditionQuestionsBag(10);
+        Log.i("bag",bag.toString());
 
     }
 

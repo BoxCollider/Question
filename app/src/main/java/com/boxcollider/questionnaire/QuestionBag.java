@@ -46,5 +46,13 @@ public class QuestionBag {
         return new HardQuestionBag();
     }
 
-
+    @Override
+    public String toString() {
+        StringBuilder bil=new StringBuilder();
+        for (Question q : bagQuestions) {
+            bil.append(q.toString());
+            bil.append("\n");
+        }
+        return bil.toString();
+    }
 }
