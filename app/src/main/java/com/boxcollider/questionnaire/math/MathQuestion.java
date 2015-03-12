@@ -16,14 +16,14 @@ import com.boxcollider.questionnaire.Question;
  */
 public abstract class MathQuestion implements Question<MathQuestion.Tuple, Integer> {
 
-    public int firstDigit;
-    public int secondDigit;
+    protected int firstDigit;
+    protected int secondDigit;
 
 
     //Helper class for holding simple data structure for storing question parts
     public static class Tuple {
-        int first;
-        int second;
+        private final int first;
+        private final int second;
 
         private Tuple(int first, int second) {
             this.first = first;
