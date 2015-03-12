@@ -5,14 +5,9 @@ package com.boxcollider.questionnaire.math;
  */
 public final class MultiplicationQuestion extends MathQuestion {
 
-    /**
-     * Perform check on the answer
-     * @param answer Answer supplied by the user
-     * @return if answer is correct or no
-     */
     @Override
-    public boolean isCorrect(int answer) {
-        return (firstDigit * secondDigit == answer);
+    public Integer getAnswer() {
+        return firstDigit * secondDigit;
     }
 
 }

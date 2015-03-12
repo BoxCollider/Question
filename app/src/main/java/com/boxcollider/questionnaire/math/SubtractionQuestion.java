@@ -4,25 +4,32 @@ package com.boxcollider.questionnaire.math;
  * Created by aleksander on 3/10/15.
  */
 
+import com.boxcollider.questionnaire.Question;
+
 /**
  * Concrete implementation of Subtraction question
  */
 public final class SubtractionQuestion extends MathQuestion {
 
     /**
-     *
-     * @param answer Answer supplied by the user
-     * @return if answer is correct or no
+     * @param questionContents
+     * @return ready to use question instance
      * @throws java.lang.IllegalArgumentException when difference is negative value
      */
     @Override
-    public boolean isCorrect(int answer) {
+    public Question make(Tuple questionContents) {
 
+        super.make(questionContents);
         //Result for subtraction must be positive value
-        if(firstDigit < secondDigit){
+        if (firstDigit < secondDigit) {
             throw new IllegalArgumentException("Subtraction with negative result.");
         }
-        return (firstDigit - secondDigit == answer);
+
+        return this;
     }
 
+    @Override
+    public Integer getAnswer() {
+        return firstDigit - secondDigit;
+    }
 }

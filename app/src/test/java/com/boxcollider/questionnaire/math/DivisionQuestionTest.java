@@ -24,7 +24,7 @@ public class DivisionQuestionTest {
 
         Question q = new DivisionQuestion();
         q.make(MathQuestion.Tuple.create(30, 0));
-        q.isCorrect(9);
+
 
     }
 
@@ -33,7 +33,7 @@ public class DivisionQuestionTest {
 
         Question q = new DivisionQuestion();
         q.make(MathQuestion.Tuple.create(30, 7));
-        q.isCorrect(9);
+
 
     }
 
@@ -42,7 +42,7 @@ public class DivisionQuestionTest {
 
         Question q = new DivisionQuestion();
         q.make(MathQuestion.Tuple.create(50,70));
-        q.isCorrect(9);
+
 
     }
 }

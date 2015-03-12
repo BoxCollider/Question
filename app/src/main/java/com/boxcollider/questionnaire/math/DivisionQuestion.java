@@ -1,19 +1,21 @@
 package com.boxcollider.questionnaire.math;
 
+import com.boxcollider.questionnaire.Question;
+
 /**
  * Created by aleksander on 3/10/15.
  */
 public final class DivisionQuestion extends MathQuestion {
 
     /**
-     * Perform check on the answer
-     * @param answer Answer supplied by the user
-     * @return if answer is correct or no
-     * @throws java.lang.ArithmeticException if divisor equals 0
+     * @param questionContents Arbitrary object
+     * @return ready to use question instance
+     * @throws java.lang.ArithmeticException      if divisor equals 0
      * @throws java.lang.IllegalArgumentException when division has remainder
      */
     @Override
-    public boolean isCorrect(int answer) {
+    public Question make(Tuple questionContents) {
+        super.make(questionContents);
         //Division by zero not permitted
         if (secondDigit == 0) {
             throw new ArithmeticException("Division by zero");
@@ -24,7 +26,14 @@ public final class DivisionQuestion extends MathQuestion {
             throw new IllegalArgumentException("Division has remainder.");
         }
 
-        return (firstDigit / secondDigit == answer);
+
+        return this;
+    }
+
+    @Override
+    public Integer getAnswer() {
+
+        return firstDigit / secondDigit;
     }
 
 }

@@ -12,9 +12,10 @@ package com.boxcollider.questionnaire;
  * Methods are implemented in subclasses
  * <br/>
  *
- * @param <T> Any object that will hold the question contents
+ * @param <Q> Any object that will hold the question contents
+ * @param <A> Any object that will hold the question answer
  */
-public interface Question<T> {
+public interface Question<Q,A> {
 
     /**
      * Implementation must supply question contents
@@ -22,7 +23,7 @@ public interface Question<T> {
      * @param questionContents Arbitrary object
      * @return
      */
-    public Question make(T questionContents);
+    public Question make(Q questionContents);
 
     /**
      * Implementers must perform check on the answer
@@ -31,4 +32,7 @@ public interface Question<T> {
      * @return if answer is correct or no
      */
     public boolean isCorrect(int answer);
+
+    public A getAnswer();
+
 }

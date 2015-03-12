@@ -14,33 +14,60 @@ import com.boxcollider.questionnaire.Question;
  * <br/>
  * if supplied answer is correct.
  */
-public abstract class MathQuestion implements Question<MathQuestion.Tuple> {
+public abstract class MathQuestion implements Question<MathQuestion.Tuple, Integer> {
 
     public int firstDigit;
     public int secondDigit;
 
+
     //Helper class for holding simple data structure for storing question parts
-    public static class Tuple{
+    public static class Tuple {
         int first;
         int second;
 
-        private Tuple(int first, int second){
-            this.first=first;
+        private Tuple(int first, int second) {
+            this.first = first;
             this.second = second;
         }
 
-        public static Tuple create(int first,int second){
-            return new Tuple(first,second);
+        /**
+         * Static factory method
+         *
+         * @param first  first element of the question
+         * @param second second element of the question
+         * @return
+         */
+        public static Tuple create(int first, int second) {
+            return new Tuple(first, second);
         }
-
 
     }
 
+    /**
+     * @param questionContents Arbitrary object
+     * @return ready to use question instance
+     */
     @Override
     public Question make(Tuple questionContents) {
-        this.firstDigit=questionContents.first;
+
+        this.firstDigit = questionContents.first;
         this.secondDigit = questionContents.second;
         return this;
     }
 
+    /**
+     * @param answer Answer supplied by the user
+     * @return if answer is correct or no
+     */
+    @Override
+    public boolean isCorrect(int answer) {
+
+        return (getAnswer() == answer);
+    }
+
+    @Override
+    public String toString() {
+
+        return "First: " + firstDigit + ", Second: " + secondDigit;
+    }
 }
