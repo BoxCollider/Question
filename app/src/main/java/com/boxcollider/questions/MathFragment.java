@@ -12,6 +12,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.BounceInterpolator;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
@@ -29,6 +30,7 @@ public class MathFragment extends Fragment {
     private TextView firstDigit;
     private TextView secondDigit;
     private EditText answer;
+    private ProgressBar uiProgress;
     private int answerInitialTextColor;
 
     @Override
@@ -39,6 +41,7 @@ public class MathFragment extends Fragment {
 
         firstDigit = (TextView) v.findViewById(R.id.first_digit);
         secondDigit = (TextView) v.findViewById(R.id.second_digit);
+        uiProgress= (ProgressBar) v.findViewById(R.id.uiProgress);
         answer = (EditText) v.findViewById(R.id.answer);
         answer.setOnEditorActionListener(answerEnteredListener);
         answerInitialTextColor =answer.getCurrentTextColor();
@@ -103,6 +106,15 @@ public class MathFragment extends Fragment {
         this.secondDigit.setText(String.valueOf(secondDigit));
 
 
+
+    }
+
+    public void showProgress(int progress){
+        uiProgress.setProgress(progress);
+    }
+
+    public void setMaxProgress(int progress){
+        uiProgress.setMax(progress);
     }
 
 

@@ -15,10 +15,27 @@ import java.util.Random;
 public class QuestionBag {
 
     private Question[] bagQuestions;
-    int currentQuestionIndex;
+    private int currentQuestionIndex;
 
     public QuestionBag() {
-        currentQuestionIndex=-1;
+
+    }
+
+    public Question[] getQuestions(){
+        return  bagQuestions;
+    }
+
+    public void setQuestions(MathQuestion[] questions){
+        bagQuestions=questions;
+    }
+
+
+    public int getCurrentQuestionIndex(){
+        return  currentQuestionIndex;
+    }
+
+    public void setCurrentQuestionIndex(int index){
+        currentQuestionIndex=index;
     }
 
     public boolean hasMoreQuestions(){
@@ -33,7 +50,8 @@ public class QuestionBag {
     public static QuestionBag makeAdditionQuestionsBag(int numberOfQuestions) {
 
         QuestionBag bag = new QuestionBag();
-        bag.bagQuestions = new Question[numberOfQuestions];
+        bag.currentQuestionIndex=-1;
+        bag.bagQuestions = new AdditionQuestion[numberOfQuestions];
 
         Random generator = new Random();
 
@@ -47,6 +65,8 @@ public class QuestionBag {
 
         return bag;
     }
+
+
 
     public static QuestionBag makeEasy() {
         return new EasyQuestionBag();

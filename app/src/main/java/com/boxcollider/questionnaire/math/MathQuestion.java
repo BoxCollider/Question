@@ -14,7 +14,7 @@ import com.boxcollider.questionnaire.Question;
  * <br/>
  * if supplied answer is correct.
  */
-public abstract class MathQuestion implements Question<MathQuestion.Tuple, Integer> {
+public abstract class MathQuestion implements Question<MathQuestion.Tuple, Integer>  {
 
     protected int firstDigit;
     protected int secondDigit;

@@ -2,10 +2,14 @@ package com.boxcollider.questions;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.boxcollider.questionnaire.QuestionBag;
 import com.boxcollider.questionnaire.math.MathQuestion;
+import com.boxcollider.questionnaire.serializers.AdditionQuestionBag;
+//TODO keep progress for questions
+//TODO implement screen for 4 question types
 
 
 public class MainActivity extends Activity {
@@ -24,15 +28,37 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onResume() {
-
         super.onResume();
 
-        beginNewTest();
-        nextQuestion();
 
+       //load test or create new
+       String savedAdditionTest = PreferenceManager.getDefaultSharedPreferences(this).getString("ADD","");
+
+        //create new test
+        if(savedAdditionTest.equals("")){
+            beginNewTest();
+
+        }
+        //load last saved test
+        else {
+            loadSavedTest(savedAdditionTest);
+        }
+
+
+
+        nextQuestion();
         becomeMathFragmentDelegate();
 
+      questionUIFragment.setMaxProgress(10);
+    }
 
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        saveTest();
     }
 
     /**
@@ -100,8 +126,22 @@ public class MainActivity extends Activity {
      */
     private void beginNewTest() {
         bag = QuestionBag.makeAdditionQuestionsBag(10);
+        Log.i("bag", "NEW TEST CREATED");
         Log.i("bag", bag.toString());
 
+    }
+
+    /**
+     * Load auto saved test in progress
+     * @param savedAdditionTest
+     */
+    private void loadSavedTest(String savedAdditionTest) {
+        AdditionQuestionBag qbag= AdditionQuestionBag.fromGSONString(savedAdditionTest);
+        bag= AdditionQuestionBag.toQuestionBag(qbag);
+        //return one step because we are loading auto next question
+        bag.setCurrentQuestionIndex(bag.getCurrentQuestionIndex()-1);
+        Log.i("bag", "OLD TEST LOADED");
+        Log.i("bag", bag.toString());
     }
 
     /**
@@ -113,17 +153,25 @@ public class MainActivity extends Activity {
 
             question = (MathQuestion) bag.giveNextQuestion();
             questionUIFragment.showQuestion(question.getFirst(), question.getSecond());
-
+            questionUIFragment.showProgress(bag.getCurrentQuestionIndex());
         } else {
             endTest();
+            questionUIFragment.showProgress(bag.getQuestions().length);
         }
+    }
+
+    private void saveTest(){
+        AdditionQuestionBag adBag=AdditionQuestionBag.fromQuestionBag(bag);
+        String gson= AdditionQuestionBag.toGSONString(adBag);
+        PreferenceManager.getDefaultSharedPreferences(this).edit().putString("ADD",gson).commit();
+        Log.i("bag", "TEST SAVED");
     }
 
     /**
      * End test last question answered
      */
     private void endTest() {
-        Log.i("test", "TEST ENDED");
+        Log.i("bag", "TEST ENDED");
     }
 
 
