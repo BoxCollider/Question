@@ -1,32 +1,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_gravity="center"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
               android:gravity="center_horizontal"
               android:orientation="vertical"
               tools:context=".MainActivity"
-              android:id="@+id/pa">
+    >
 
-<ImageButton
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@android:drawable/ic_media_next"/>
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_media_next"
+        android:id="@+id/nextQuestion"/>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <TextView
         style="@style/mathFragment"
-        android:text="213"
+        tools:text="213"
+        android:id="@+id/first_digit"
 
         />
 
 
     <TextView
         style="@style/mathFragment"
-        android:text="X"/>
+        android:text="+"/>
 
     <TextView
         style="@style/mathFragment"
-        android:text="714"
+        tools:text="714"
+        android:id="@+id/second_digit"
         />
 
     <TextView
@@ -36,14 +45,21 @@
     <EditText
 
         style="@style/mathFragment"
+        android:cursorVisible="false"
+        android:gravity="center"
         android:hint="Answer here"
         android:inputType="number"
-        android:gravity="center"
-        android:cursorVisible="false"/>
+        android:id="@+id/answer"
+        />
 
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/answerQuestion"
         android:text="GO"
         />
 

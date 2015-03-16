@@ -70,4 +70,12 @@ public abstract class MathQuestion implements Question<MathQuestion.Tuple, Integ
 
         return "First: " + firstDigit + ", Second: " + secondDigit;
     }
+
+    public int getFirst(){
+        return firstDigit;
+    }
+
+    public int getSecond(){
+        return secondDigit;
+    }
 }

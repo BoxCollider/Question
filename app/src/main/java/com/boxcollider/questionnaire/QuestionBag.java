@@ -15,9 +15,19 @@ import java.util.Random;
 public class QuestionBag {
 
     private Question[] bagQuestions;
+    int currentQuestionIndex;
 
     public QuestionBag() {
+        currentQuestionIndex=-1;
+    }
 
+    public boolean hasMoreQuestions(){
+        return currentQuestionIndex<bagQuestions.length-1;
+    }
+
+    public Question giveNextQuestion(){
+        currentQuestionIndex ++ ;
+        return  bagQuestions[currentQuestionIndex];
     }
 
     public static QuestionBag makeAdditionQuestionsBag(int numberOfQuestions) {
