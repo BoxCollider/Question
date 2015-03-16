@@ -93,12 +93,6 @@ public class MathFragment extends Fragment {
 
     }
 
-    private void clear() {
-
-        firstDigit.setText("");
-        secondDigit.setText("");
-        answer.setText("");
-    }
 
     public void answerCorrect(){
         answer.setTextColor(Color.GREEN);
@@ -120,6 +114,13 @@ public class MathFragment extends Fragment {
                 answer.animate().xBy(300).yBy(-300).rotationBy(90).setInterpolator(new AccelerateInterpolator()).start();
             }
         }).start();
+    }
+
+    private void clear() {
+
+        firstDigit.setText("");
+        secondDigit.setText("");
+        answer.setText("");
     }
 
 
