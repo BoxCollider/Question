@@ -29,7 +29,7 @@ public class MathFragment extends Fragment {
     private TextView firstDigit;
     private TextView secondDigit;
     private EditText answer;
-    private int answerColor;
+    private int answerInitialTextColor;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,8 +40,8 @@ public class MathFragment extends Fragment {
         firstDigit = (TextView) v.findViewById(R.id.first_digit);
         secondDigit = (TextView) v.findViewById(R.id.second_digit);
         answer = (EditText) v.findViewById(R.id.answer);
-        answer.setOnEditorActionListener(liso);
-        answerColor=answer.getCurrentTextColor();
+        answer.setOnEditorActionListener(answerEnteredListener);
+        answerInitialTextColor =answer.getCurrentTextColor();
 
         v.findViewById(R.id.nextQuestion).setOnClickListener(nextQuestionClick);
         v.findViewById(R.id.answerQuestion).setOnClickListener(answerQuestionClick);
@@ -49,20 +49,28 @@ public class MathFragment extends Fragment {
         return v;
     }
 
-    TextView.OnEditorActionListener liso = new TextView.OnEditorActionListener() {
+    /**
+     * Edit text must reset previous coloring every time new answer is supplied by the user.
+     */
+    TextView.OnEditorActionListener answerEnteredListener = new TextView.OnEditorActionListener() {
         @Override
         public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
             if(i == EditorInfo.IME_ACTION_DONE){
-                answer.setTextColor(answerColor);
+                answer.setTextColor(answerInitialTextColor);
             }
             return false;
         }
     };
 
+    /**
+     * User goes to next question
+     * We must reset text color for the answer to initial state
+     * Delegate responsibility to other Class implementing MathClickHandler Interface
+     */
     View.OnClickListener nextQuestionClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            answer.setTextColor(answerColor);
+            answer.setTextColor(answerInitialTextColor);
 
 
             if(interactionHandler==null){
@@ -73,6 +81,10 @@ public class MathFragment extends Fragment {
         }
     };
 
+    /**
+     * Answer evaluation.
+     * Delegate responsibility to other Class implementing MathClickHandler Interface
+     */
     View.OnClickListener answerQuestionClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -94,6 +106,9 @@ public class MathFragment extends Fragment {
     }
 
 
+    /**
+     * Make visual indication on correct answer
+     */
     public void answerCorrect(){
         answer.setTextColor(Color.GREEN);
         answer.animate().yBy(-100).setInterpolator(new AccelerateInterpolator()).withEndAction(new Runnable() {
@@ -105,6 +120,9 @@ public class MathFragment extends Fragment {
         }).start();
     }
 
+    /**
+     * Make visual indication on wrong answer
+     */
     public void answerWrong(){
         answer.setTextColor(Color.RED);
         answer.animate().xBy(-300).yBy(300).rotationBy(-90).withEndAction(new Runnable() {
