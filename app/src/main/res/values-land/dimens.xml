@@ -1,4 +1,4 @@
 <resources>
     <!--Phones landscape mode-->
-    <dimen name="mathHeight">20dp</dimen>
+    <dimen name="mathFragment_textSize">20dp</dimen>
 </resources>

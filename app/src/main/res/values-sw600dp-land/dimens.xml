@@ -1,4 +1,4 @@
 <resources>
     <!--Tablets landscape mode-->
-    <dimen name="mathHeight">32dp</dimen>
+    <dimen name="mathFragment_textSize">32dp</dimen>
 </resources>

@@ -1,4 +1,4 @@
 <resources>
     <!--Tablets portrait mode-->
-    <dimen name="mathHeight">70dp</dimen>
+    <dimen name="mathFragment_textSize">70dp</dimen>
 </resources>

@@ -7,7 +7,7 @@
     android:background="@color/blueDark"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="5dp"
+    android:padding="@dimen/mathFragment_layoutPadding"
     tools:context=".MainActivity">
 
     <ProgressBar
@@ -16,66 +16,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:indeterminate="false"
-        android:max="10"
-        android:progress="5"/>
+        tools:max="10"
+        tools:progress="5"/>
 
 
     <Button
         android:id="@+id/nextQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_selector"
-        android:text="NEXT"
-        android:textColor="@color/lilacBright"
-        android:textSize="30dp"
-        />
+        style="@style/mathFragment_button"
+        android:text="NEXT"/>
 
     <include layout="@layout/space_auto_vertical"/>
 
     <TextView
         android:id="@+id/first_digit"
-        style="@style/mathFragment"
-        tools:text="213"
-
-        />
-
+        style="@style/mathFragment_textElements"
+        tools:text="213"/>
 
     <TextView
-        style="@style/mathFragment"
+        style="@style/mathFragment_textElements"
         android:text="+"/>
 
     <TextView
         android:id="@+id/second_digit"
-        style="@style/mathFragment"
-        tools:text="714"
-        />
+        style="@style/mathFragment_textElements"
+        tools:text="714"/>
 
     <TextView
-        style="@style/mathFragment"
+        style="@style/mathFragment_textElements"
         android:text="="/>
 
     <EditText
-
         android:id="@+id/answer"
-        style="@style/mathFragment"
+        style="@style/mathFragment_textElements"
         android:cursorVisible="false"
         android:gravity="center"
         android:hint="Answer"
-        android:inputType="number"
-        android:maxLength="6"
-
-        />
+        android:inputType="number"/>
 
     <include layout="@layout/space_auto_vertical"/>
 
     <Button
         android:id="@+id/answerQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_selector"
-        android:text="CHECK"
-        android:textColor="@color/lilacBright"
-        android:textSize="30dp"
-        />
+        style="@style/mathFragment_button"
+        android:text="CHECK"/>
 
 </LinearLayout>

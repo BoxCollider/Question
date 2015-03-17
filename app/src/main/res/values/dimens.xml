@@ -1,6 +1,13 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
 
     <!--Phones portrait mode-->
-    <dimen name="mathHeight">34dp</dimen>
+    <dimen name="mathFragment_textSize">34dp</dimen>
+
+    <dimen name="mathFragment_buttonCornerRadius">20dp</dimen>
+    <dimen name="mathFragment_buttonStrokeWidth">2dp</dimen>
+    <dimen name="mathFragment_buttonWidth">200dp</dimen>
+    <dimen name="mathFragment_buttonHeight">50dp</dimen>
+    <dimen name="mathFragment_buttonTextSize">30dp</dimen>
+    <dimen name="mathFragment_layoutPadding">5dp</dimen>
+
 </resources>

@@ -45,17 +45,18 @@ public class MathFragment extends Fragment {
         uiProgress.getProgressDrawable().setColorFilter(getResources().getColor(R.color.yellowBright), PorterDuff.Mode.SRC_IN);
         answer = (EditText) v.findViewById(R.id.answer);
         answer.getBackground().setColorFilter(getResources().getColor(R.color.lilacBright), PorterDuff.Mode.SRC_IN);
-        //answer.setOnEditorActionListener(answerEnteredListener);
         answer.setOnTouchListener(lit);
         answerInitialTextColor= getResources().getColor(R.color.yellowBright);
         answer.setTextColor(answerInitialTextColor);
-        answer.setHintTextColor(getResources().getColor(R.color.gray));
-
         v.findViewById(R.id.nextQuestion).setOnClickListener(nextQuestionClick);
         v.findViewById(R.id.answerQuestion).setOnClickListener(answerQuestionClick);
 
 
         return v;
+    }
+
+    private void resetTextColor() {
+
     }
 
     /**

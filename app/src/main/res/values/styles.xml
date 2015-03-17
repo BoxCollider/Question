@@ -1,25 +1,26 @@
 <resources>
 
-    <!--Colors for text and text hint-->
-    <!--main color hex 564CFF, rgb 86 76 255 -->
-    <color name="yellowBright" >#FFFFE55B</color>
-    <color name="gray" >#11FFFFFF</color>
-    <color name="blueDark" >#FF130F4C</color>
-    <color name="lilacBright" >#FFBAB6FE</color>
-    <color name="tobacco" >#FFB29911</color>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.NoActionBar">
 
     </style>
 
-<!--  style for math fragment. Dimensions vary by orientation  -->
-    <style name="mathFragment">
+    <!--  style for math fragment text elements. Dimensions vary by orientation  -->
+    <style name="mathFragment_textElements">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/mathHeight</item>
+        <item name="android:textSize">@dimen/mathFragment_textSize</item>
         <item name="android:textColor">@color/yellowBright</item>
         <item name="android:textColorHint">@color/gray</item>
+    </style>
+
+    <!--  style for math fragment buttons. Dimensions vary by orientation  -->
+    <style name="mathFragment_button">
+        <item name="android:layout_width">@dimen/mathFragment_buttonWidth</item>
+        <item name="android:layout_height">@dimen/mathFragment_buttonHeight</item>
+        <item name="android:background">@drawable/button_selector</item>
+        <item name="android:textColor">@color/lilacBright</item>
+        <item name="android:textSize">@dimen/mathFragment_buttonTextSize</item>
     </style>
 
 </resources>

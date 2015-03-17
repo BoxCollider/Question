@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Colors for text and text hint-->
+    <!--main color hex 564CFF, rgb 86 76 255 -->
+    <color name="yellowBright">#FFFFE55B</color>
+    <color name="gray">#11FFFFFF</color>
+    <color name="blueDark">#FF130F4C</color>
+    <color name="lilacBright">#FFBAB6FE</color>
+    <color name="tobacco">#FFB29911</color>
+</resources>
