@@ -27,6 +27,7 @@ public class MathFragment extends Fragment {
 
     public MathClickHandler interactionHandler;
 
+    private View nextQuestionView;
     private TextView firstDigit;
     private TextView secondDigit;
     private EditText answer;
@@ -39,6 +40,7 @@ public class MathFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootLayout = inflater.inflate(R.layout.fragment_math, container, false);
 
+
         firstDigit = (TextView) rootLayout.findViewById(R.id.first_digit);
         secondDigit = (TextView) rootLayout.findViewById(R.id.second_digit);
         uiProgress= (ProgressBar) rootLayout.findViewById(R.id.uiProgress);
@@ -48,7 +50,8 @@ public class MathFragment extends Fragment {
         answer.setOnTouchListener(restoreHintAndColorOnAnswerListener);
         answerInitialTextColor= getResources().getColor(R.color.yellowBright);
         resetTextColor();
-        rootLayout.findViewById(R.id.nextQuestion).setOnClickListener(nextQuestionClick);
+        nextQuestionView=rootLayout.findViewById(R.id.nextQuestion);
+        nextQuestionView.setOnClickListener(nextQuestionClick);
         rootLayout.findViewById(R.id.answerQuestion).setOnClickListener(answerQuestionClick);
 
 
@@ -137,6 +140,7 @@ public class MathFragment extends Fragment {
             public void run() {
 
                 answer.animate().setInterpolator(new BounceInterpolator()).yBy(100);
+
             }
         }).start();
     }

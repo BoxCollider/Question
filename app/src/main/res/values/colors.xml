@@ -7,4 +7,5 @@
     <color name="blueDark">#FF130F4C</color>
     <color name="lilacBright">#FFBAB6FE</color>
     <color name="tobacco">#FFB29911</color>
+    <color name="transparent">#00000000</color>
 </resources>

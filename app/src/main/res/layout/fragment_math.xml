@@ -23,7 +23,8 @@
     <Button
         android:id="@+id/nextQuestion"
         style="@style/mathFragment_button"
-        android:text="NEXT"/>
+        android:text="NEXT"
+        />
 
     <include layout="@layout/space_auto_vertical"/>
 
