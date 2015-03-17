@@ -1,0 +1,4 @@
+<resources>
+    <!--Tablets portrait mode-->
+    <dimen name="mathHeight">70dp</dimen>
+</resources>

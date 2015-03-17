@@ -8,7 +8,11 @@ import android.util.Log;
 import com.boxcollider.questionnaire.QuestionBag;
 import com.boxcollider.questionnaire.math.MathQuestion;
 import com.boxcollider.questionnaire.serializers.AdditionQuestionBag;
-//TODO keep progress for questions
+//TODO add other types of math tests
+//TODO what happens when we solve last question ?
+//TODO add sounds
+//TODO add graphics
+//TODO add leaderboards and achievements
 //TODO implement screen for 4 question types
 
 

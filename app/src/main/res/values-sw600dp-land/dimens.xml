@@ -1,0 +1,4 @@
+<resources>
+    <!--Tablets landscape mode-->
+    <dimen name="mathHeight">32dp</dimen>
+</resources>
