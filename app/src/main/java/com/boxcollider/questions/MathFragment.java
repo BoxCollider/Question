@@ -37,39 +37,37 @@ public class MathFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_math, container, false);
+        View rootLayout = inflater.inflate(R.layout.fragment_math, container, false);
 
-        firstDigit = (TextView) v.findViewById(R.id.first_digit);
-        secondDigit = (TextView) v.findViewById(R.id.second_digit);
-        uiProgress= (ProgressBar) v.findViewById(R.id.uiProgress);
+        firstDigit = (TextView) rootLayout.findViewById(R.id.first_digit);
+        secondDigit = (TextView) rootLayout.findViewById(R.id.second_digit);
+        uiProgress= (ProgressBar) rootLayout.findViewById(R.id.uiProgress);
         uiProgress.getProgressDrawable().setColorFilter(getResources().getColor(R.color.yellowBright), PorterDuff.Mode.SRC_IN);
-        answer = (EditText) v.findViewById(R.id.answer);
+        answer = (EditText) rootLayout.findViewById(R.id.answer);
         answer.getBackground().setColorFilter(getResources().getColor(R.color.lilacBright), PorterDuff.Mode.SRC_IN);
-        answer.setOnTouchListener(lit);
+        answer.setOnTouchListener(restoreHintAndColorOnAnswerListener);
         answerInitialTextColor= getResources().getColor(R.color.yellowBright);
-        answer.setTextColor(answerInitialTextColor);
-        v.findViewById(R.id.nextQuestion).setOnClickListener(nextQuestionClick);
-        v.findViewById(R.id.answerQuestion).setOnClickListener(answerQuestionClick);
+        resetTextColor();
+        rootLayout.findViewById(R.id.nextQuestion).setOnClickListener(nextQuestionClick);
+        rootLayout.findViewById(R.id.answerQuestion).setOnClickListener(answerQuestionClick);
 
 
-        return v;
+        return rootLayout;
     }
 
     private void resetTextColor() {
-
+        answer.setTextColor(answerInitialTextColor);
     }
 
     /**
      * Edit text must reset previous coloring from answer check ew answer is supplied by the user.
      */
-   EditText.OnTouchListener lit = new EditText.OnTouchListener() {
+   EditText.OnTouchListener restoreHintAndColorOnAnswerListener = new EditText.OnTouchListener() {
        @Override
        public boolean onTouch(View view, MotionEvent motionEvent) {
            if(motionEvent.getAction()==MotionEvent.ACTION_DOWN){
-               //if(answer.getCurrentTextColor()!=answerInitialTextColor){
-               answer.setText("");
-               answer.setTextColor(answerInitialTextColor);
-               //}
+                answer.setText("");
+                resetTextColor();
            }
            return false;
        }
@@ -85,8 +83,7 @@ public class MathFragment extends Fragment {
     View.OnClickListener nextQuestionClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            answer.setTextColor(answerInitialTextColor);
-
+            resetTextColor();
 
             if(interactionHandler==null){
                 Log.i("questions","Next Question No Click Handler");
@@ -158,6 +155,9 @@ public class MathFragment extends Fragment {
         }).start();
     }
 
+    /**
+     * Cleans previous question an answer from screen
+     */
     private void clear() {
 
         firstDigit.setText("");

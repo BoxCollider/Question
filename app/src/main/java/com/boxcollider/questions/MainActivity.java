@@ -11,21 +11,22 @@ import com.boxcollider.questionnaire.serializers.AdditionQuestionBag;
 //TODO add other types of math tests
 //TODO what happens when we solve last question ?
 //TODO add sounds
-//TODO add graphics
-//TODO add leaderboards and achievements
+//TODO add button dimensions for landscape and tablets
+//TODO add Leaderboards and achievements
 //TODO implement screen for 4 question types
 
 
 public class MainActivity extends Activity {
+
+    private final String TAG = "bag";
     private MathFragment questionUIFragment;
     MathQuestion question;
     private QuestionBag bag;
+    private static final int TEST_QUESTIONS_NUMBER=10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
         findOrAddQuestionsUIFragment(savedInstanceState);
     }
@@ -33,35 +34,26 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-
-
-       //load test or create new
-       String savedAdditionTest = PreferenceManager.getDefaultSharedPreferences(this).getString("ADD","");
+        String savedAdditionTest = PreferenceManager.getDefaultSharedPreferences(this).getString("ADD","");
 
         //create new test
         if(savedAdditionTest.equals("")){
             beginNewTest();
 
         }
-        //load last saved test
+        //or load last saved test
         else {
             loadSavedTest(savedAdditionTest);
         }
 
-
-
         nextQuestion();
         becomeMathFragmentDelegate();
-
-      questionUIFragment.setMaxProgress(10);
+        questionUIFragment.setMaxProgress(TEST_QUESTIONS_NUMBER);
     }
-
-
 
     @Override
     protected void onPause() {
         super.onPause();
-
         saveTest();
     }
 
@@ -130,9 +122,9 @@ public class MainActivity extends Activity {
      * Creates new test with supplied number of questions
      */
     private void beginNewTest() {
-        bag = QuestionBag.makeAdditionQuestionsBag(10);
-        Log.i("bag", "NEW TEST CREATED");
-        Log.i("bag", bag.toString());
+        bag = QuestionBag.makeAdditionQuestionsBag(TEST_QUESTIONS_NUMBER);
+        Log.i(TAG, "NEW TEST CREATED");
+        Log.i(TAG, bag.toString());
 
     }
 
@@ -145,8 +137,8 @@ public class MainActivity extends Activity {
         bag= AdditionQuestionBag.toQuestionBag(qbag);
         //return one step because we are loading auto next question
         bag.setCurrentQuestionIndex(bag.getCurrentQuestionIndex()-1);
-        Log.i("bag", "OLD TEST LOADED");
-        Log.i("bag", bag.toString());
+        Log.i(TAG, "OLD TEST LOADED");
+        Log.i(TAG, bag.toString());
     }
 
     /**
@@ -165,18 +157,21 @@ public class MainActivity extends Activity {
         }
     }
 
+    /**
+     * Save test state
+     */
     private void saveTest(){
         AdditionQuestionBag adBag=AdditionQuestionBag.fromQuestionBag(bag);
         String gson= AdditionQuestionBag.toGSONString(adBag);
         PreferenceManager.getDefaultSharedPreferences(this).edit().putString("ADD",gson).commit();
-        Log.i("bag", "TEST SAVED");
+        Log.i(TAG, "TEST SAVED");
     }
 
     /**
      * End test last question answered
      */
     private void endTest() {
-        Log.i("bag", "TEST ENDED");
+        Log.i(TAG, "TEST ENDED");
     }
 
 

@@ -1,4 +1,10 @@
 <resources>
     <!--Phones landscape mode-->
     <dimen name="mathFragment_textSize">20dp</dimen>
+
+    <dimen name="mathFragment_buttonWidth">120dp</dimen>
+    <dimen name="mathFragment_buttonHeight">30dp</dimen>
+    <dimen name="mathFragment_buttonTextSize">16dp</dimen>
+
+
 </resources>

@@ -67,15 +67,6 @@ public class QuestionBag {
     }
 
 
-
-    public static QuestionBag makeEasy() {
-        return new EasyQuestionBag();
-    }
-
-    public static QuestionBag makeHard() {
-        return new HardQuestionBag();
-    }
-
     @Override
     public String toString() {
         StringBuilder bil=new StringBuilder();
