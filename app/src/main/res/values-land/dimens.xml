@@ -1,4 +1,4 @@
 <resources>
 
-    <dimen name="mathHeight">25dp</dimen>
+    <dimen name="mathHeight">20dp</dimen>
 </resources>

@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        findOrAddQuestionsUIFragment();
+        findOrAddQuestionsUIFragment(savedInstanceState);
     }
 
     @Override
@@ -106,12 +106,13 @@ public class MainActivity extends Activity {
 
     /**
      * Take reference for MathFragment instance if it already exists or create new one
+     * @param savedInstanceState
      */
-    private void findOrAddQuestionsUIFragment() {
+    private void findOrAddQuestionsUIFragment(Bundle savedInstanceState) {
 
         questionUIFragment = (MathFragment) getFragmentManager().findFragmentByTag("MATH");
 
-        if (questionUIFragment == null) {
+        if (savedInstanceState == null) {
 
             questionUIFragment = new MathFragment();
             getFragmentManager().beginTransaction().add(R.id.parent, questionUIFragment, "MATH").commit();
