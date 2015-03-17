@@ -1,11 +1,16 @@
 <resources>
 
+    <!--Colors for text and text hint-->
+    <color name="apTextColor" >#FFFFE55B</color>
+    <color name="apTextHintColor" >#55FFE55B</color>
+    <color name="appBackgroundColor" >#FF130F4C</color>
+
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.NoActionBar">
-        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/apTextColor</item>
+        <item name="android:textColorHint">@color/apTextHintColor</item>
     </style>
-
-
 
 <!--  style for math fragment. Dimensions vary by orientation  -->
     <style name="mathFragment">

@@ -1,29 +1,30 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:gravity="center_horizontal"
-              android:padding="5dp"
-              android:orientation="vertical"
-              tools:context=".MainActivity"
-              android:id="@+id/someID">
+<LinearLayout
+    android:id="@+id/someID"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gridtinted"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context=".MainActivity">
 
     <ProgressBar
+        android:id="@+id/uiProgress"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:progress="5"
-        android:max="10"
         android:indeterminate="false"
-        android:id="@+id/uiProgress"
-        style="?android:attr/progressBarStyleHorizontal"/>
-
+        android:max="10"
+        android:progress="5"/>
 
 
     <ImageButton
+        android:id="@+id/nextQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_media_next"
-        android:id="@+id/nextQuestion"/>
+        android:src="@android:drawable/ic_media_next"/>
 
     <Space
         android:layout_width="1dp"
@@ -31,9 +32,9 @@
         android:layout_weight="1"/>
 
     <TextView
+        android:id="@+id/first_digit"
         style="@style/mathFragment"
         tools:text="213"
-        android:id="@+id/first_digit"
 
         />
 
@@ -43,9 +44,9 @@
         android:text="+"/>
 
     <TextView
+        android:id="@+id/second_digit"
         style="@style/mathFragment"
         tools:text="714"
-        android:id="@+id/second_digit"
         />
 
     <TextView
@@ -54,12 +55,12 @@
 
     <EditText
 
+        android:id="@+id/answer"
         style="@style/mathFragment"
         android:cursorVisible="false"
         android:gravity="center"
         android:hint="Answer here"
         android:inputType="number"
-        android:id="@+id/answer"
 
         />
 
@@ -67,10 +68,11 @@
         android:layout_width="1dp"
         android:layout_height="0dp"
         android:layout_weight="1"/>
+
     <Button
+        android:id="@+id/answerQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/answerQuestion"
         android:text="GO"
         />
 

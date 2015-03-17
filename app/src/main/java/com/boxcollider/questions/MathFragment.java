@@ -4,13 +4,12 @@ import android.app.Fragment;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.BounceInterpolator;
-import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -43,8 +42,11 @@ public class MathFragment extends Fragment {
         secondDigit = (TextView) v.findViewById(R.id.second_digit);
         uiProgress= (ProgressBar) v.findViewById(R.id.uiProgress);
         answer = (EditText) v.findViewById(R.id.answer);
-        answer.setOnEditorActionListener(answerEnteredListener);
-        answerInitialTextColor =answer.getCurrentTextColor();
+        //answer.setOnEditorActionListener(answerEnteredListener);
+        answer.setOnTouchListener(lit);
+        answerInitialTextColor= getResources().getColor(R.color.apTextColor);
+        answer.setTextColor(answerInitialTextColor);
+        answer.setHintTextColor(getResources().getColor(R.color.apTextHintColor));
 
         v.findViewById(R.id.nextQuestion).setOnClickListener(nextQuestionClick);
         v.findViewById(R.id.answerQuestion).setOnClickListener(answerQuestionClick);
@@ -53,17 +55,22 @@ public class MathFragment extends Fragment {
     }
 
     /**
-     * Edit text must reset previous coloring every time new answer is supplied by the user.
+     * Edit text must reset previous coloring from answer check ew answer is supplied by the user.
      */
-    TextView.OnEditorActionListener answerEnteredListener = new TextView.OnEditorActionListener() {
-        @Override
-        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-            if(i == EditorInfo.IME_ACTION_DONE){
-                answer.setTextColor(answerInitialTextColor);
-            }
-            return false;
-        }
-    };
+   EditText.OnTouchListener lit = new EditText.OnTouchListener() {
+       @Override
+       public boolean onTouch(View view, MotionEvent motionEvent) {
+           if(motionEvent.getAction()==MotionEvent.ACTION_DOWN){
+               //if(answer.getCurrentTextColor()!=answerInitialTextColor){
+               answer.setText("");
+               answer.setTextColor(answerInitialTextColor);
+               //}
+           }
+           return false;
+       }
+   };
+
+
 
     /**
      * User goes to next question
