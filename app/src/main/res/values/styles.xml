@@ -1,15 +1,16 @@
 <resources>
 
     <!--Colors for text and text hint-->
-    <color name="apTextColor" >#FFFFE55B</color>
-    <color name="apTextHintColor" >#55FFE55B</color>
-    <color name="appBackgroundColor" >#FF130F4C</color>
-
+    <!--main color hex 564CFF, rgb 86 76 255 -->
+    <color name="yellowBright" >#FFFFE55B</color>
+    <color name="gray" >#11FFFFFF</color>
+    <color name="blueDark" >#FF130F4C</color>
+    <color name="lilacBright" >#FFBAB6FE</color>
+    <color name="tobacco" >#FFB29911</color>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.NoActionBar">
-        <item name="android:textColor">@color/apTextColor</item>
-        <item name="android:textColorHint">@color/apTextHintColor</item>
+
     </style>
 
 <!--  style for math fragment. Dimensions vary by orientation  -->
@@ -17,6 +18,8 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/mathHeight</item>
+        <item name="android:textColor">@color/yellowBright</item>
+        <item name="android:textColorHint">@color/gray</item>
     </style>
 
 </resources>

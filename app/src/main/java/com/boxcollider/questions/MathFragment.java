@@ -2,6 +2,7 @@ package com.boxcollider.questions;
 
 import android.app.Fragment;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -41,15 +42,18 @@ public class MathFragment extends Fragment {
         firstDigit = (TextView) v.findViewById(R.id.first_digit);
         secondDigit = (TextView) v.findViewById(R.id.second_digit);
         uiProgress= (ProgressBar) v.findViewById(R.id.uiProgress);
+        uiProgress.getProgressDrawable().setColorFilter(getResources().getColor(R.color.yellowBright), PorterDuff.Mode.SRC_IN);
         answer = (EditText) v.findViewById(R.id.answer);
+        answer.getBackground().setColorFilter(getResources().getColor(R.color.lilacBright), PorterDuff.Mode.SRC_IN);
         //answer.setOnEditorActionListener(answerEnteredListener);
         answer.setOnTouchListener(lit);
-        answerInitialTextColor= getResources().getColor(R.color.apTextColor);
+        answerInitialTextColor= getResources().getColor(R.color.yellowBright);
         answer.setTextColor(answerInitialTextColor);
-        answer.setHintTextColor(getResources().getColor(R.color.apTextHintColor));
+        answer.setHintTextColor(getResources().getColor(R.color.gray));
 
         v.findViewById(R.id.nextQuestion).setOnClickListener(nextQuestionClick);
         v.findViewById(R.id.answerQuestion).setOnClickListener(answerQuestionClick);
+
 
         return v;
     }

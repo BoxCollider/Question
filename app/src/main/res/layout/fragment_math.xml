@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gridtinted"
+    android:background="@color/blueDark"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="5dp"
@@ -20,16 +20,17 @@
         android:progress="5"/>
 
 
-    <ImageButton
+    <Button
         android:id="@+id/nextQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_media_next"/>
+        android:background="@drawable/button_selector"
+        android:text="NEXT"
+        android:textColor="@color/lilacBright"
+        android:textSize="30dp"
+        />
 
-    <Space
-        android:layout_width="1dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+    <include layout="@layout/space_auto_vertical"/>
 
     <TextView
         android:id="@+id/first_digit"
@@ -59,21 +60,22 @@
         style="@style/mathFragment"
         android:cursorVisible="false"
         android:gravity="center"
-        android:hint="Answer here"
+        android:hint="Answer"
         android:inputType="number"
+        android:maxLength="6"
 
         />
 
-    <Space
-        android:layout_width="1dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+    <include layout="@layout/space_auto_vertical"/>
 
     <Button
         android:id="@+id/answerQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GO"
+        android:background="@drawable/button_selector"
+        android:text="CHECK"
+        android:textColor="@color/lilacBright"
+        android:textSize="30dp"
         />
 
 </LinearLayout>
