@@ -20,11 +20,7 @@
         tools:progress="5"/>
 
 
-    <Button
-        android:id="@+id/nextQuestion"
-        style="@style/mathFragment_button"
-        android:text="NEXT"
-        />
+
 
     <include layout="@layout/space_auto_vertical"/>
 
@@ -54,6 +50,13 @@
         android:hint="Answer"
         android:inputType="number"/>
 
+    <include layout="@layout/space_auto_vertical"/>
+    <Button
+        android:id="@+id/nextQuestion"
+        style="@style/mathFragment_button"
+        android:text="NEXT"
+
+        />
     <include layout="@layout/space_auto_vertical"/>
 
     <Button

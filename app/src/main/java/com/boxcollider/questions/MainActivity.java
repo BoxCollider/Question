@@ -2,6 +2,7 @@ package com.boxcollider.questions;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
@@ -14,6 +15,7 @@ import com.boxcollider.questionnaire.serializers.AdditionQuestionBag;
 //TODO add button dimensions for landscape and tablets
 //TODO add Leaderboards and achievements
 //TODO implement screen for 4 question types
+//TODO refactor end test dialog
 
 
 public class MainActivity extends Activity {
@@ -22,7 +24,7 @@ public class MainActivity extends Activity {
     private MathFragment questionUIFragment;
     MathQuestion question;
     private QuestionBag bag;
-    private static final int TEST_QUESTIONS_NUMBER=10;
+    private static final int TEST_QUESTIONS_NUMBER = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +36,10 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        String savedAdditionTest = PreferenceManager.getDefaultSharedPreferences(this).getString("ADD","");
+        String savedAdditionTest = PreferenceManager.getDefaultSharedPreferences(this).getString("ADD", "");
 
         //create new test
-        if(savedAdditionTest.equals("")){
+        if (savedAdditionTest.equals("")) {
             beginNewTest();
 
         }
@@ -49,6 +51,7 @@ public class MainActivity extends Activity {
         nextQuestion();
         becomeMathFragmentDelegate();
         questionUIFragment.setMaxProgress(TEST_QUESTIONS_NUMBER);
+
     }
 
     @Override
@@ -88,12 +91,16 @@ public class MainActivity extends Activity {
 
     /**
      * Check if answer supplied by the user is correct
+     *
      * @param answer
      */
     private void checkAnswer(int answer) {
 
         if (question.isCorrect(answer)) {
             questionUIFragment.answerCorrect();
+            if(bag.hasMoreQuestions()==false){
+                showEndTestDialog();
+            }
         } else {
             questionUIFragment.answerWrong();
         }
@@ -102,6 +109,7 @@ public class MainActivity extends Activity {
 
     /**
      * Take reference for MathFragment instance if it already exists or create new one
+     *
      * @param savedInstanceState
      */
     private void findOrAddQuestionsUIFragment(Bundle savedInstanceState) {
@@ -130,13 +138,14 @@ public class MainActivity extends Activity {
 
     /**
      * Load auto saved test in progress
+     *
      * @param savedAdditionTest
      */
     private void loadSavedTest(String savedAdditionTest) {
-        AdditionQuestionBag qbag= AdditionQuestionBag.fromGSONString(savedAdditionTest);
-        bag= AdditionQuestionBag.toQuestionBag(qbag);
+        AdditionQuestionBag qbag = AdditionQuestionBag.fromGSONString(savedAdditionTest);
+        bag = AdditionQuestionBag.toQuestionBag(qbag);
         //return one step because we are loading auto next question
-        bag.setCurrentQuestionIndex(bag.getCurrentQuestionIndex()-1);
+        bag.setCurrentQuestionIndex(bag.getCurrentQuestionIndex() - 1);
         Log.i(TAG, "OLD TEST LOADED");
         Log.i(TAG, bag.toString());
     }
@@ -145,6 +154,7 @@ public class MainActivity extends Activity {
      * Switch to next test question
      */
     private void nextQuestion() {
+
 
         if (bag.hasMoreQuestions()) {
 
@@ -160,10 +170,10 @@ public class MainActivity extends Activity {
     /**
      * Save test state
      */
-    private void saveTest(){
-        AdditionQuestionBag adBag=AdditionQuestionBag.fromQuestionBag(bag);
-        String gson= AdditionQuestionBag.toGSONString(adBag);
-        PreferenceManager.getDefaultSharedPreferences(this).edit().putString("ADD",gson).commit();
+    private void saveTest() {
+        AdditionQuestionBag adBag = AdditionQuestionBag.fromQuestionBag(bag);
+        String gson = AdditionQuestionBag.toGSONString(adBag);
+        PreferenceManager.getDefaultSharedPreferences(this).edit().putString("ADD", gson).commit();
         Log.i(TAG, "TEST SAVED");
     }
 
@@ -172,6 +182,17 @@ public class MainActivity extends Activity {
      */
     private void endTest() {
         Log.i(TAG, "TEST ENDED");
+
+    }
+
+    private void showEndTestDialog() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                new TestCompletedDialogFragment().show(getFragmentManager(), "HIHIHI");
+            }
+        }, 1200);
     }
 
 
