@@ -1,4 +1,16 @@
 <resources>
     <!--Tablets portrait mode-->
     <dimen name="mathFragment_textSize">70dp</dimen>
+
+    <!--Dialog style-->
+    <dimen name="dialogTextSize">60dp</dimen>
+    <dimen name="dialogTextBottomMargin">30dp</dimen>
+
+    <dimen name="dialogButtonWidth">230dp</dimen>
+    <dimen name="dialogButtonHeight">64dp</dimen>
+    <dimen name="dialogButtonTextSize">32dp</dimen>
+
+    <dimen name="dialogWidth">560dp</dimen>
+    <dimen name="dialogPadding">30dp</dimen>
+
 </resources>
