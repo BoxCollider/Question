@@ -3,12 +3,28 @@
     <!--Phones portrait mode-->
     <dimen name="mathFragment_textSize">34dp</dimen>
 
-    <dimen name="mathFragment_buttonCornerRadius">20dp</dimen>
+    <dimen name="mathFragment_buttonCornerRadius">15dp</dimen>
     <dimen name="mathFragment_buttonStrokeWidth">2dp</dimen>
     <dimen name="mathFragment_buttonWidth">192dp</dimen>
     <dimen name="mathFragment_buttonHeight">48dp</dimen>
     <dimen name="mathFragment_buttonTextSize">24dp</dimen>
 
     <dimen name="mathFragment_layoutPadding">5dp</dimen>
+
+    <!--Dialog style-->
+    <dimen name="dialogTextSize">25dp</dimen>
+    <dimen name="dialogTextBottomMargin">20dp</dimen>
+
+    <dimen name="dialogButtonWidth">110dp</dimen>
+    <dimen name="dialogButtonHeight">40dp</dimen>
+    <dimen name="dialogButtonTextSize">18dp</dimen>
+
+    <dimen name="dialogWidth">280dp</dimen>
+    <dimen name="dialogPadding">20dp</dimen>
+
+
+
+
+
 
 </resources>

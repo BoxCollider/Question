@@ -1,46 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/dialog_completed"
-                android:padding="20dp"
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:gravity="center"
     >
 
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="250dp"
+    <RelativeLayout
+        android:layout_width="@dimen/dialogWidth"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:text="Test complete!\nTake another?"
-        android:textColor="@color/yellowBright"
-        android:textSize="25dp"
-
-        />
+        android:background="@drawable/dialog_completed"
+        android:padding="@dimen/dialogPadding"
 
 
-    <Button
-        android:id="@+id/nextQuestionzz"
-        style="@style/testCompletedDialogButton"
-        android:layout_below="@id/textView"
-        android:layout_alignLeft="@id/textView"
-        android:text="YES"
+        >
 
 
-        />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dialogTextBottomMargin"
+            android:text="Test complete!\nTake another?"
+            android:textColor="@color/yellowBright"
+            android:textSize="@dimen/dialogTextSize"
 
-    <Button
-        android:id="@+id/nextQuestionzzzz"
-        style="@style/testCompletedDialogButton"
-        android:layout_alignRight="@id/textView"
-        android:layout_below="@id/textView"
-        android:text="NO"
+            />
 
 
-        />
+        <Button
+            android:id="@+id/answerYes"
+            style="@style/testCompletedDialogButton"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/textView"
+            android:text="YES"
 
-</RelativeLayout>
+
+            />
+
+        <Button
+            android:id="@+id/answerNo"
+            style="@style/testCompletedDialogButton"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/textView"
+            android:text="NO"
+
+
+            />
+
+    </RelativeLayout>
+</LinearLayout>

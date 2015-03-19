@@ -3,7 +3,6 @@
        android:shape="rectangle">
 
     <solid android:color="@color/blueDark"/>
-
     <corners android:radius="@dimen/mathFragment_buttonCornerRadius"/>
 
     <stroke

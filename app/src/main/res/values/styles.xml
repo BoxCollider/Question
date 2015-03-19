@@ -27,11 +27,11 @@
 
     <!--  style for test completed dialog buttons. Dimensions vary by orientation  -->
     <style name="testCompletedDialogButton">
-        <item name="android:layout_width">120dp</item>
-        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">@dimen/dialogButtonWidth</item>
+        <item name="android:layout_height">@dimen/dialogButtonHeight</item>
         <item name="android:background">@drawable/button_selector</item>
         <item name="android:textColor">@color/lilacBright</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">@dimen/dialogButtonTextSize</item>
     </style>
 
 </resources>
